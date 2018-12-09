@@ -1,0 +1,55 @@
+Scenarios:
+
+1. Registered user is able to see his accounts when logged in and able to login into all available accounts
+2. Unregistered user is not getting past the login screen
+3. Unregistered user is seeing appropriate error message
+4. Selecting an account is taking user to the correct login screen
+5. Email address is getting populated wiht the registered email
+6. Validation for the input fields for any special characters, invalid email, input length
+7. Using a browser back button from accounts login page is taking the user to accounts list page
+8. XSS for the login input fields
+9. PW in the account login page is encrypted
+10. If the user opens another browser window while logged in one window, he should be logged in the other window
+
+
+
+
+Test report:
+
+Testing Scope:
+
+Scope of the testing is for
+- SignIn
+- Accounts page
+- Accounts login page
+
+- SignIn page: is tested for the input fields and all the secondary actions present on the page. Input field is tested for special characters,
+ spaces, invalid email format, not registered user.
+ - Special characters are not recognised and invalid email error message is thrown
+ - Spaces, invalid format are considered as invalid email address
+ - When unknown valid email is given "User not found" error message is thrown
+
+Issues:
+- Multiple dots in the email address should be considered as invalid email address, rather than user not found
+- Special charactes in the email should be shown "user not found" it's considered as invalid email format
+
+Accounts Page: is tested for all the accounts displayed and all the secondary actions on the page are tested
+
+- Each account is clicked and they are directed to the respective accounts login page
+- demoone, guild login pages are displaying a login button to huddlebuy, clicking on huddlebuy is giving 404 page
+- Back button on the accounts modal is checked
+- Forgot Password is taking to password reset page
+
+Issues:
+- When clicking on the account, account is not staying highlighted
+
+
+Accounts login page:
+
+- Email address is populated for all the accounts
+- Correct account loading is verified by checking the URL
+
+Issues:
+- Clicking on the browser back button is taking user to signin page, should be directed to accounts page
+
+
